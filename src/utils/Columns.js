@@ -1,0 +1,112 @@
+const columns = [
+		
+    {
+        field: "codigo",
+        headerName: "Código",    
+        simpleFilter: true,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+        
+    },
+    {
+        field: "tipo",
+        headerName: "Tipo",    
+        simpleFilter: true,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "estado",
+        headerName: "Estado",    
+        simpleFilter: true,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "resolucion",
+        headerName: "Resolución",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "prioridad",
+        headerName: "Prioridad",    
+        simpleFilter: true,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "responsable",
+        headerName: "Responsable",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "informador",
+        headerName: "Informador",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "versionAfectada",
+        headerName: "Versión afectada",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "tomaAccion",
+        headerName: "Se toma acción",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,    
+    },
+    {
+        field: "fechaLimite",
+        headerName: "Fecha limite",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,    
+    },
+    {
+        field: "responsableVerificar",
+        headerName: "Responsable de verificar",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    {
+        field: "fechaCreacion",
+        headerName: "Fecha de creacion",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+        
+    },
+    {
+        field: "fechaActualizacion",
+        headerName: "Fecha de actualización",    
+        simpleFilter: false,
+        type: "string",
+        editable: false,
+        disableColumnMenu: true,
+    },
+    
+];
+
+export default columns;
