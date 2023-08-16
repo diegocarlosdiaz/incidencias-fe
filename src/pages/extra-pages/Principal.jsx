@@ -7,11 +7,14 @@ import { Button, Grid } from '../../../node_modules/@mui/material/index';
 import incidencias from 'utils/Incidencias';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from '../../../node_modules/react-router-dom/dist/index';
+import { useSelector } from '../../../node_modules/react-redux/es/exports';
+import { getHistoricoCambios } from 'service/HistoricoCambios';
 
 
 const Principal = () => {
   const dispatch = useDispatch()
-  
+  /* const data = useSelector((state) => state.historialdecambios.entities)
+  console.log(data) */
     return (
     
     <>
@@ -23,7 +26,7 @@ const Principal = () => {
         columns={columns}
         rows={incidencias}
         dispatch={dispatch}
-        getEntities={getEstados}
+        getEntities={getHistoricoCambios}
       >
       </ CompenenteReporte> 
     </>

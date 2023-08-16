@@ -11,11 +11,21 @@ import { EditModal } from 'components/EditModal';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '../../../node_modules/@mui/lab/index';
 import { HistoricoCambios } from 'components/HistoricoCambios';
+import { useDispatch, useSelector } from '../../../node_modules/react-redux/es/exports';
+import { getHistoricoCambios } from 'service/HistoricoCambios';
 
 
 
 
 export const DetalleIncidencia = () => {
+
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.historialDeCambios.entities)
+  console.log(data)
+
+    useEffect(() => {
+    dispatch(getHistoricoCambios({}))
+    }, [dispatch]);
 
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');

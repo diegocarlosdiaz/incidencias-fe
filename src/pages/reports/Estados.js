@@ -16,7 +16,8 @@ const Estados = () => {
     const dispatch = useDispatch()
     
     //const rows = useSelector((state) => state.estados.entities);
-    const rows = useSelector((state) => state.estados.entities )
+    const rows = useSelector((state) => state.estados.entities)
+    console.log(rows)
     const isLoading = useSelector((state) => state.estados.isLoading);
     const error = useSelector((state) => state.estados.error);
     const totalItems = useSelector((state) => state.estados.totalItems);

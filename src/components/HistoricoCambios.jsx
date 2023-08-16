@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, Divider, Grid, Stack, Typography } from '../../node_modules/@mui/material/index'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { useDispatch, useSelector } from '../../node_modules/react-redux/es/exports';
+import { getHistoricoCambios } from 'service/HistoricoCambios';
 
 export const HistoricoCambios = ({ values }) => {
+
+    
+
     return (
         <>
             
-            <Card  sx={{padding:4, backgroundColor:'#f2f2f0',  maxWidth: '83%'}}>
+            <Card  sx={{padding:4, backgroundColor:'#e6e6e6',  maxWidth: '83%'}}>
                 <Stack direction="row" sx={{ alignItems: 'flex-start' }} spacing={0.3}>
                     <Typography>Cambiado por</Typography><AccountBoxIcon color="primary" fontSize='small' /> <Typography>{values.responsable} - {values.fechaActualizacion}</Typography>
                 </Stack>
