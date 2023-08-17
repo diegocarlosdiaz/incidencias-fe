@@ -20,7 +20,7 @@ import { useNavigate, useParams } from '../../../node_modules/react-router-dom/d
 dayjs.extend(customParseFormat);
 
 function CompenenteReporte(props) {
-    const { columns, rows, totalItems, isLoading, error, dispatch, loadingExport, getEntities, getEntitiesCSV, title, method } = props;
+    const { columns, rows, totalItems, isLoading, error, dispatch, loadingExport, getEntities, getEntitiesCSV, title, method, handleRowClick } = props;
 
     //Paginado
     const [paginationModel, setPaginationModel] = useState({
@@ -77,11 +77,7 @@ function CompenenteReporte(props) {
         }
     };
 
-    const navigate = useNavigate()
-    const handleRowClick = (params) => {
-        console.log('Selected Row:', params.row);
-        navigate(`/detalle/${params.row.id}`);
-    } 
+    
     const CustomFilterIcon = () => {
         return (
             <Badge

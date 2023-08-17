@@ -6,6 +6,7 @@ export default class ApiService {
         try {
             if(axios.defaults.baseURL !== window._env_.API_URL){
                 axios.defaults.baseURL = window._env_.API_URL;
+                console.log(window._env_.API_URL)
             }
             const response= await axios.get( url, {
                 params,

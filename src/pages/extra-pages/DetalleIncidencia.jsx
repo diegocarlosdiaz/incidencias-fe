@@ -15,17 +15,7 @@ import { useDispatch, useSelector } from '../../../node_modules/react-redux/es/e
 import { getHistoricoCambios } from 'service/HistoricoCambios';
 
 
-
-
 export const DetalleIncidencia = () => {
-
-  const dispatch = useDispatch();
-  const data = useSelector((state) => state.historialDeCambios.entities)
-  console.log(data)
-
-    useEffect(() => {
-    dispatch(getHistoricoCambios({}))
-    }, [dispatch]);
 
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');
@@ -41,7 +31,16 @@ export const DetalleIncidencia = () => {
   };
 
   const descriptionElementRef = useRef(null);
+
+  const data = useSelector((state) => state.historialDeCambios.entities)
+  console.log(data);
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getHistoricoCambios({}))
+    console.log("llamado a la api")
+  },[])
+
+   useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
       if (descriptionElement !== null) {
@@ -49,8 +48,8 @@ export const DetalleIncidencia = () => {
       }
     }
   }, [open]);
-  const { id } = useParams();
-  return (
+  const { id } = useParams(); 
+   return (
     <>
       <Grid p={3}>
         {
@@ -168,9 +167,7 @@ export const DetalleIncidencia = () => {
                   <Typography variant='h5' py={3}>
                     Historico de cambios
                   </Typography>
-                  <HistoricoCambios values={i}/>
-                    
-                  
+                  <HistoricoCambios values={i} />
                 </Grid>
               </Grid>
             </>
@@ -178,5 +175,6 @@ export const DetalleIncidencia = () => {
         }
       </Grid>
     </>
-  )
+  ) 
+  
 }
