@@ -6,11 +6,6 @@ import { getHistoricoCambios } from 'service/HistoricoCambios';
 
 export const HistoricoCambios = ({ values }) => {
 
-    
-    
-
-   
-
     return (
         <>
 

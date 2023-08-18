@@ -7,15 +7,13 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import EditIcon from '@mui/icons-material/Edit';
 import CommentIcon from '@mui/icons-material/Comment';
 import { EditModal } from 'components/EditModal';
-
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker, LocalizationProvider } from '../../../node_modules/@mui/lab/index';
 import { HistoricoCambios } from 'components/HistoricoCambios';
 import { useDispatch, useSelector } from '../../../node_modules/react-redux/es/exports';
 import { getHistoricoCambios } from 'service/HistoricoCambios';
 
 
-export const DetalleIncidencia = () => {
+export const DetalleIncidencia = ({}) => {
+  const { id } = useParams();
 
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');
@@ -33,14 +31,18 @@ export const DetalleIncidencia = () => {
   const descriptionElementRef = useRef(null);
 
   const data = useSelector((state) => state.historialDeCambios.entities)
-  console.log(data);
+  const error = useSelector((state) => state.historialDeCambios.error)
+  const isLoading = useSelector((state) => state.historialDeCambios.isLoading)
+  
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getHistoricoCambios({}))
-    console.log("llamado a la api")
-  },[])
+  if(!isLoading) {
+  dispatch(getHistoricoCambios());
+  console.log(data);
+  }
+  }, [])
 
-   useEffect(() => {
+  useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
       if (descriptionElement !== null) {
@@ -48,14 +50,20 @@ export const DetalleIncidencia = () => {
       }
     }
   }, [open]);
-  const { id } = useParams(); 
-   return (
+
+  if(error){
+    return(
+      error
+    )
+  }
+  
+  return (
     <>
       <Grid p={3}>
         {
           incidencias.map((i) => (
             i.id == id &&
-            <>
+            <React.Fragment key={i.id}>
               <Grid justifyContent='space-between' container pb={3}>
                 <Grid>
                   <Typography color='primary'>{i.codigo}/</Typography>
@@ -74,11 +82,13 @@ export const DetalleIncidencia = () => {
               </Grid>
               <Divider />
               <Stack direction="row" spacing={2} py={3}>
+
                 <Button variant='outlined' onClick={handleOpen('paper')}><EditIcon fontSize='small' /><Typography pl={0.5}>Editar</Typography></Button>
                 <EditModal isOpen={open} scroll={scroll} values={i} handleClose={handleClose} />
                 <Button variant='outlined'><CommentIcon fontSize='small' /><Typography pl={0.5}>Comentar</Typography></Button>
                 <Button color='inherit' variant='outlined'><Typography>Cerrar incidencia</Typography></Button>
                 <Button color='inherit' variant='outlined'><Typography>Reabrir incidencia</Typography></Button>
+                <Button color='inherit' variant='outlined'><Typography>Resolver incidencia</Typography></Button>
               </Stack>
               <Divider />
               <Grid container pt={5}>
@@ -170,11 +180,11 @@ export const DetalleIncidencia = () => {
                   <HistoricoCambios values={i} />
                 </Grid>
               </Grid>
-            </>
+            </React.Fragment>
           ))
         }
       </Grid>
     </>
-  ) 
-  
+  )
+
 }
