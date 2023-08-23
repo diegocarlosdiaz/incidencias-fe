@@ -36,10 +36,12 @@ const transaction = {
         {
             id:'powerbi',
             title: 'Reportes de Power BI',
-            type:'item',
-            url: '/reportepowerbi',
+            type:'list',
+            url: 'https://app.powerbi.com/singleSignOn?ru=https%3A%2F%2Fapp.powerbi.com%2F%3FnoSignUpCheck%3D1',
             icon: icons.CheckCircleOutlined,
-            breadcrumbs: false
+            breadcrumbs: false,
+            subItems: ["PowerBi 1","PowerBi 2","PowerBi 3","PowerBi 4"],
+            
 
         },
         {

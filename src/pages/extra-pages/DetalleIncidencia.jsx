@@ -51,11 +51,11 @@ export const DetalleIncidencia = ({}) => {
     }
   }, [open]);
 
-  if(error){
+  /* if(error){
     return(
       error
     )
-  }
+  } */
   
   return (
     <>

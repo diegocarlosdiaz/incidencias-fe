@@ -88,7 +88,8 @@ const NavItem = ({ item, level }) => {
                     }
                 })
             }}
-        >
+        > 
+
             {itemIcon && (
                 <ListItemIcon
                     sx={{
@@ -106,16 +107,18 @@ const NavItem = ({ item, level }) => {
                         }),
                         ...(!drawerOpen &&
                             isSelected && {
-                                bgcolor: 'primary.lighter',
-                                '&:hover': {
-                                    bgcolor: 'primary.lighter'
-                                }
-                            })
+                            bgcolor: 'primary.lighter',
+                            '&:hover': {
+                                bgcolor: 'primary.lighter'
+                            }
+                        })
                     }}
                 >
                     {itemIcon}
                 </ListItemIcon>
             )}
+
+            
             {(drawerOpen || (!drawerOpen && level !== 1)) && (
                 <ListItemText
                     primary={
@@ -125,6 +128,7 @@ const NavItem = ({ item, level }) => {
                     }
                 />
             )}
+
             {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
                 <Chip
                     color={item.chip.color}

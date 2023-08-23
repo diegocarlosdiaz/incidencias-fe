@@ -6,6 +6,7 @@ import { Box, List, Typography } from '@mui/material';
 
 // project import
 import NavItem from './NavItem';
+import { NavList } from './NavList';
 
 // ==============================|| NAVIGATION - LIST GROUP ||============================== //
 
@@ -17,6 +18,8 @@ const NavGroup = ({ item }) => {
         switch (menuItem.type) {
             case 'item':
                 return <NavItem key={menuItem.id} item={menuItem} level={1} />;
+            case 'list':
+                return <NavList key={menuItem.id} item={menuItem} level={1}/>
             default:
                 return (
                     <Typography key={menuItem.id} variant="h6" color="error" align="center">

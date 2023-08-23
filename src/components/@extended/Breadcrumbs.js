@@ -15,6 +15,12 @@ const Breadcrumbs = ({ navigation, title, ...others }) => {
     const location = useLocation();
     const [main, setMain] = useState();
     const [item, setItem] = useState();
+    const [open, setOpen] = useState(true);
+
+    const handleClick = () => {
+        setOpen(!open);
+    };
+
 
     // set active item state
     const getCollapse = (menu) => {
@@ -61,6 +67,27 @@ const Breadcrumbs = ({ navigation, title, ...others }) => {
         );
     }
 
+    if (main && main.type === 'list') {
+        <>
+            <ListItemButton onClick={handleClick}>
+                <ListItemIcon>
+                    <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Inbox" />
+                {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                    <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                            <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText primary="Starred" />
+                    </ListItemButton>
+                </List>
+            </Collapse>
+        </>
+    }
     // items
     if (item && item.type === 'item') {
         itemTitle = item.title;
