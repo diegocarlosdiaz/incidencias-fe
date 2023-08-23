@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Link, useNavigate } from '../../../node_modules/react-router-dom/dist/index';
 import { useSelector } from '../../../node_modules/react-redux/es/exports';
 import { getHistoricoCambios } from 'service/HistoricoCambios';
+import { NewIncidence } from 'components/NewIncidence/NewIncidence';
 
 
 const Principal = () => {
@@ -38,7 +39,8 @@ const Principal = () => {
     <>
     <Grid container justifyContent='space-between' py={3} sx={{alignItems:'center'}}>
       <h3>Incidencias</h3>
-      <Button variant='contained' py={0} sx={{height:40}}>Nueva Incidencia<AddIcon/></Button>
+      <NewIncidence />
+      
     </Grid>
       <CompenenteReporte
         columns={columns}

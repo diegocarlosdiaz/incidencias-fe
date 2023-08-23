@@ -10,6 +10,8 @@ import { EditModal } from 'components/EditModal';
 import { HistoricoCambios } from 'components/HistoricoCambios';
 import { useDispatch, useSelector } from '../../../node_modules/react-redux/es/exports';
 import { getHistoricoCambios } from 'service/HistoricoCambios';
+import CommentModal from 'components/Comment/CommentModal';
+import { ResolveIncidence } from 'components/ResolveIncidence/ResolveIncidence';
 
 
 export const DetalleIncidencia = ({}) => {
@@ -85,10 +87,12 @@ export const DetalleIncidencia = ({}) => {
 
                 <Button variant='outlined' onClick={handleOpen('paper')}><EditIcon fontSize='small' /><Typography pl={0.5}>Editar</Typography></Button>
                 <EditModal isOpen={open} scroll={scroll} values={i} handleClose={handleClose} />
-                <Button variant='outlined'><CommentIcon fontSize='small' /><Typography pl={0.5}>Comentar</Typography></Button>
+                <CommentModal />
+                {/* <Button variant='outlined'><CommentIcon fontSize='small' /><Typography pl={0.5}>Comentar</Typography></Button> */}
                 <Button color='inherit' variant='outlined'><Typography>Cerrar incidencia</Typography></Button>
                 <Button color='inherit' variant='outlined'><Typography>Reabrir incidencia</Typography></Button>
-                <Button color='inherit' variant='outlined'><Typography>Resolver incidencia</Typography></Button>
+                <Button color='inherit' variant='outlined' onClick={handleOpen('paper')}><Typography>Resolver incidencia</Typography></Button>
+                {/* <ResolveIncidence isOpen={open} scroll={scroll} values={i} handleClose={handleClose} /> */}
               </Stack>
               <Divider />
               <Grid container pt={5}>
