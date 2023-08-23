@@ -7,6 +7,8 @@ import { DetalleIncidencia } from 'pages/extra-pages/DetalleIncidencia';
 import { Prueba } from 'pages/Prueba';
 import Login from 'pages/authentication/Login';
 import Register from 'pages/authentication/Register';
+import { Auditoria } from 'pages/extra-pages/Auditoria';
+import { Configuracion } from 'pages/extra-pages/Configuracion';
 // render - dashboard
 const Estados = Loadable(lazy(() => import('pages/reports/Estados')));
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
@@ -37,6 +39,14 @@ const MainRoutes = {
         {
             path:'/detalle/:id',
             element:<DetalleIncidencia/>
+        },
+        {
+            path:'/auditoria',
+            element:<Auditoria/>
+        },
+        {
+            path:'/configuracion',
+            element:<Configuracion/>
         },
         {
             path:'/login',
